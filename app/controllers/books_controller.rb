@@ -26,7 +26,7 @@ class BooksController < ApplicationController
 
   def edit
     @book = Book.find(params[:id])
-    @user = User.find(params[:id])
+    #@user = User.find(params[:id])
   end
 
   def update
@@ -51,9 +51,8 @@ class BooksController < ApplicationController
   end
 
   def ensure_correct_user
-    #ログイン中のユーザ以外が編集画面に遷移できないようにしたい・・・(未完成)
     @book = Book.find(params[:id])
-    unless @book.user == current_user.id
+    unless @book.user_id == current_user.id
       redirect_to user_path(current_user)
     end
   end
