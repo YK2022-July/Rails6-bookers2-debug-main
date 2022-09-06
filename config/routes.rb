@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get 'relationships/followings'
   get 'relationships/followers'
-  get "search" => "searches#search"
+  get 'search' => 'searches#search'
   # For details onthe DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   root :to =>"homes#top"

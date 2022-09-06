@@ -3,6 +3,7 @@ class SearchesController < ApplicationController
 
   def search
     @search_model = params[:search_model]
+    @word = params[:word]
 
     if @search_model == "User"
       @users = User.looks(params[:search_pattern], params[:word])
