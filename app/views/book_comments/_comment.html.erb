@@ -1,4 +1,4 @@
-<% @book.book_comments.each do |book_comment| %>
+<% book.book_comments.each do |book_comment| %>
   <div class="d-flex align-items-end">
     <div>
       <%= link_to(book_comment.user) do %>
@@ -8,9 +8,9 @@
     <div>
       <%= book_comment.comment %>
     </div>
-    <div>
+    <div id="comment_destroy_<%= book.id %>">
       <% if book_comment.user == current_user %>
-        <%= link_to 'Destroy', book_book_comment_path(book_comment.book, book_comment), method: :delete, class: "btn btn-sm btn-danger" %>
+        <%= link_to 'Destroy', book_book_comment_path(book_comment.book, book_comment), method: :delete, remote: true, class: "btn btn-sm btn-danger" %>
       <% end %>
     </div>
   </div>
@@ -18,5 +18,5 @@
     <%= link_to(book_comment.user) do %>
       <%= book_comment.user.name %>
     <% end %>
-  </div>
+</div>
 <% end %>
